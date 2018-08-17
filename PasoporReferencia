@@ -1,0 +1,83 @@
+#include <iostream>
+
+using namespace std;
+
+main()
+{
+	int dato=500;
+	int &Refdato1 = dato;
+	const int &CteRefdato2 = dato;
+	int *ptrDato = &dato;
+	int *const ptrDatocte = &dato;
+	int const *ptrDatoaCte = &dato;
+	//int dato1 = 300;
+	cout<<"\t\t\tProgramación Orienta a Objetos 1301";
+	cout<<"\n dato = "<<dato;
+	cout<<"\n Refdato1 = "<<Refdato1;
+	cout<<"\n&CteRefdato2 = "<<CteRefdato2;
+	cout<<"\n *ptrDato = "<< *ptrDato;
+	cout<<"\n *ptrDtoCte = "<<*ptrDatocte;
+	//cout<<"\n *ptrDtoacte "<<*ptrDatoacte;
+	cin.get();
+	Refdato1 = 300;
+	cout<<"\n dato = "<<dato;
+	cout<<"\n Refdato1 = "<<Refdato1;
+	cout<<"\n&CteRefdato2 = "<<CteRefdato2;
+	cout<<"\n *ptrDato = "<< *ptrDato;
+	cout<<"\n *ptrDtoCte = "<<*ptrDatocte<<"\n";
+	cin.get();
+	
+	//cteRefdato=1500; no se puede cambiar el dato porque es constante
+	*ptrDato=680;
+	cout<<"\n dato = "<<dato;
+	cout<<"\n Refdato1 = "<<Refdato1;
+	cout<<"\n&CteRefdato2 = "<<CteRefdato2;
+	cout<<"\n *ptrDato = "<< *ptrDato;
+	cout<<"\n *ptrDtoCte = "<<*ptrDatocte;
+	 
+	cin.get();
+	//*ptrDatoCte=6;	
+}
+
+//Segundo Ejercicio
+#include <iostream>
+using namespace std;
+
+
+
+//Paso de parámetros por valor
+void funcPasoporValor(int dato)
+{
+	dato +=1; //dato = dato+1;
+	
+	
+}
+
+
+void funcPasoporReferencia(int &dato)
+{
+	dato +=1;
+}
+
+void funcPasoporDireccion( int *dato)
+{
+	*dato=*dato+1;
+}
+
+
+int main()
+{
+	cout<<"\tProgramacion paso por refencia";
+	int x=100;
+	cout<<"\nInicializacion \n x =  "<<x;
+	funcPasoporValor(x);
+	cout<<"\nPaso por valor\n x =  "<<x;
+	cin.get();
+	funcPasoporReferencia(x);
+	cout<<"\nPaso por Refencia \n x="<<x;
+	cin.get();
+	funcPasoporDireccion(&x);
+	cout<<"\nPaso por Direccion \n x="<<x;
+	
+}
+
