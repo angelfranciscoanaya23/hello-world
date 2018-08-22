@@ -74,3 +74,29 @@ int main()
 	
 	
 }
+//Calcular el modulo de dos numeros enteros si hay
+// residuo mostrarlo de lo contrario mostrar resultado de la division
+#include <stdio.h>
+int main()
+{
+	int numerador, divisor;
+	float modulo;
+	printf("Calcula el modulo de dos numeros enteros ");
+	printf("Ingresa el numerador : ");
+	scanf("%d",&numerador);
+	printf("Ingresa el divisor :");
+	scanf("%d",&divisor);
+	
+	
+	modulo = numerador% divisor;
+	
+	if (modulo!=0)
+	{
+		printf("El resultado es %f: ",modulo);
+		
+	}
+	else 
+	{
+		printf("el resultado es : %d",(numerador/divisor));
+	}
+}
