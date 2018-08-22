@@ -1,0 +1,76 @@
+//Calcular el modulo de dos numeros enteros si hay
+// residuo mostrarlo de lo contrario mostrar resultado de la division
+#include <stdio.h>
+int main()
+{
+	int numerador, divisor;
+	float modulo;
+	printf("Calcula el modulo de dos numeros enteros ");
+	printf("Ingresa el numerador : ");
+	scanf("%d",&numerador);
+	printf("Ingresa el divisor :");
+	scanf("%d",&divisor);
+	
+	
+	modulo = numerador% divisor;
+	
+	if (modulo!=0)
+	{
+		printf("El resultado es %f: ",modulo);
+		
+	}
+	else 
+	{
+		printf("el resultado es : %d",(numerador/divisor));
+	}
+}
+
+#include <stdio.h>
+int main()
+{
+	int A,B,C,D;
+	A=5;
+	B=6;
+	C=7
+	D=8;
+	printf("Los numeros son : %d %d %d %d", A,B,C,D);
+	printf("ahora estan de manera inversa : %d %d %d %d ",D,C,B,A);
+	
+	
+}
+
+//Calcular areta de un triangulo
+
+#include <stdio.h>
+
+int main ()
+{
+	float area,base,altura;
+	printf("\tPrograma para calcular area de un triangulo \n");
+	printf("Ingresa la base : ");
+	scanf("%f",&base);
+	printf("Ingresa la altura :");
+	scanf("%f",&altura);
+	
+	area= (base*altura)/2;
+	
+	printf("La area es %f ",area);
+}
+
+//Calcular ingreso total semestral y promedio mensual de un empleado
+#include <stdio.h>
+int main()
+{
+	float semestre,mensual,salario;
+	printf("Ingresa tu salario a la quincena ",salario);
+	scanf("%f",&salario);
+	
+	semestre= salario*12;
+	mensual= salario*2;
+	
+	printf("Tu ingreso semestre es %.2f:\n ",semestre);
+	
+	printf("Tu ingreso mensual es %.f2: \n",mensual);
+	
+	
+}
