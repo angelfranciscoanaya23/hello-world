@@ -1,0 +1,82 @@
+class Circulo
+{
+  float radio;
+  float coordenadax;
+  float coordenaday;
+  color col; //Este es el color
+  
+  Circulo (float or, float ocx,float ocy, color ocol)
+  {
+    radio=or;
+    coordenadax=ocx;
+    coordenaday=ocy;
+    col=ocol;
+  }
+  
+  void calculaArea()
+  {
+    print("El area del circulo es : "+ 3.1416*radio*radio);
+  }
+  
+  void calculaPerimetro()
+  {
+    print("El perimetro del circulo es : " +3.1416*2*radio);
+  }
+  
+  void pintaCirculo()
+  {
+    fill(col);
+    stroke(50);
+    ellipse(coordenadax,coordenaday,50,50);
+  }
+  
+} //si no funciona lleva ;
+
+Circulo circ1,circ2,circ3,circ4,circ5;
+
+void setup()
+{
+ size(670,400);
+ circ1= new Circulo (50.0,150.0,200.0,#FBFE00);
+ circ2= new Circulo (40.0,270.0,300.0,#CB3E00);
+ circ3= new Circulo (50.0,270.0,100.0,#04FE00);
+ circ4= new Circulo (60.0,170.0,50.0,#A083FE);
+ circ5= new Circulo (70.0,190.0,140.0,#00F6FE);
+ circ1.calculaArea();
+ circ1.calculaPerimetro();
+}
+
+void draw()
+{
+  background (#E416F1);
+  circ1.pintaCirculo();
+  circ2.pintaCirculo();
+  circ3.pintaCirculo();
+  circ4.pintaCirculo();
+  circ5.pintaCirculo();
+  if(circ1.coordenadax>width)circ1.coordenadax=50;
+  else 
+    circ1.coordenadax +=1;
+    
+    if(circ2.coordenadax>width)circ2.coordenadax=50;
+  else 
+    circ2.coordenadax +=2;
+    
+    if(circ3.coordenaday>width)circ3.coordenaday=50;
+  else 
+    circ3.coordenaday +=3;
+   
+    if(circ4.coordenaday>width)circ4.coordenaday=50;
+  else 
+    circ4.coordenaday +=4;
+    
+    if(circ5.coordenaday>width)circ5.coordenaday=50;
+  else 
+    circ5.coordenaday +=5;
+}
+
+ 
+ 
+ 
+ 
+  
