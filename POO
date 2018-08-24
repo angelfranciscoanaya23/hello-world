@@ -1,0 +1,126 @@
+
+
+#include<iostream>
+#include<stdlib.h>
+#include<string.h>
+using namespace std;
+
+class Trabajador{
+	private: //Atributos
+		string nombre;
+		int edad;
+	public: //Metodos
+		Trabajador(string,int); //Constructor Persona
+		void mostrarTrabajador();
+};
+
+class Trabajador1 : public Trabajador{
+	private: //Atributos
+		float sueldo;
+	public: //Metodos
+		Trabajador1(string,int,float); //Constructor Empleado
+		void mostrarTrabajador1();
+};
+
+class Trabajador3 : public Trabajador{
+	private: //Atributos
+		float notaFinal;
+	public: //Metodos
+		Trabajador3(string,int,float);
+		void mostrarTrabajador3();
+};
+
+
+Trabajador::Trabajador(string _nombre,int _edad){
+	nombre = _nombre;
+	edad = _edad;
+}
+
+void Trabajador::mostrarTrabajador(){
+	cout<<"Nombre: "<<nombre<<endl;
+	cout<<"Edad: "<<edad<<endl;
+}
+
+//Constructor de la clase Empleado (Clase Hija)
+Trabajador1::Trabajador1(string _nombre,int _edad,float _sueldo) : Trabajador(_nombre,_edad){
+	sueldo = _sueldo;
+}
+
+void Trabajador1::mostrarTrabajador1(){
+	mostrarTrabajador();
+	cout<<"Sueldo: "<<sueldo<<endl;
+}
+
+//Constructor de la clase Estudiante
+Trabajador3::Trabajador3(string _nombre,int _edad,float _notaFinal) : Trabajador(_nombre,_edad){
+	notaFinal = _notaFinal;
+}
+
+void Trabajador3::mostrarTrabajador3(){
+	mostrarTrabajador();
+	cout<<"Sueldo: "<<notaFinal<<endl;
+}
+
+
+
+int main(){
+	Trabajador1 Trabajador11("Juan",35,1300);
+	cout<<"-Trabajador2-"<<endl;
+	Trabajador11.mostrarTrabajador1();
+	cout<<"\n";
+	
+	Trabajador3 Trabajador31("Pedro",21,16.7);
+	cout<<"-Trabajador3-"<<endl;
+	Trabajador31.mostrarTrabajador3();
+	cout<<"\n";
+	
+
+	system("pause");
+	return 0;
+}
+
+/*Ejercicio 1: Realice un programa que pida al usuario el nombre de un fichero 
+de texto y, a continuación permita almacenar al usuario tantas frases como el
+usuario desee.*/
+
+#include<iostream>
+#include<stdlib.h>
+#include<fstream>
+using namespace std;
+
+void escribirTrabajador();
+
+int main(){
+	escribirTrabajador();
+	
+	system("pause");
+	return 0;
+} 
+
+void escribirTrabajador(){
+	ofstream archivo;
+	string nombreArchivo,trabajador;
+	char rpt;
+	
+	cout<<"Digite el nombre del archivo (sin espacios): ";
+	getline(cin,nombreArchivo);
+	
+	archivo.open(nombreArchivo.c_str(),ios::out); //Creamos el archivo
+	
+	if(archivo.fail()){ //Si a ocurrido algun error
+		cout<<"No se pudo abrir el archivo";
+		exit(1);
+	}
+	
+	do{
+		fflush(stdin);
+		cout<<"Digite un trabajador: ";
+		getline(cin,trabajador);
+		archivo<<trabajador<<endl;
+		
+		cout<<"\nDesea agregar otro trabajador(S/N): ";
+		cin>>rpt;
+	}while((rpt == 'S') || (rpt == 's'));
+	
+	archivo.close(); //Cerramos el archivo
+}
