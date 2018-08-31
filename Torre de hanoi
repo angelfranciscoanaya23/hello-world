@@ -1,0 +1,41 @@
+
+/*Modificado por Angel Francisco Pérez Anaya el original se encuentra en 
+http://recursividadenc.blogspot.com/2012/03/recursividad-en-c.html
+Torres de Hanoi*/
+#include <iostream>
+using namespace std;
+ 
+void torre_hanoi(int num,char A,char C,char B)//Creacion de la clase hanoi
+{	
+	if(num>15) //Ponemos un delimitar que el maximo número de disco puede ser 14
+	{
+		cout<<"Oye men la computadora va a explotar son muchos discos";
+	}
+    else if (num==1) //Caso base, si solo hay un disco.
+    {
+            cout<<"\nMueva el Disco "<<num<<" desde "<<A<<" hasta  "<<C<<endl;
+             
+    }
+    else
+    { 
+        torre_hanoi(num-1,A,B,C);
+        cout<<"Mueva el Disco "<<num<<" desde "<<A<<" hasta  "<<C<<endl;
+        torre_hanoi(num-1,B,C,A);
+    }
+}
+ 
+int main()
+{
+        int n;//El numero de discos asignados desde la consola
+        char A,B,C;//Son los tres pilares dando el valor de A,B y C
+        //El pilar A representa al primero
+        //El pilar B representa el segundo tambien llamado auxiliar
+        //El pilar C representa al ultimo
+ 		cout<<"\t\tPrograma que da a conocer las posiciones que deben tomar los discos\n";
+ 		cout<<"\nUsando recursividad\n";
+        cout<<"\nLos pilares son A B C\n";
+        cout<<"\nNumero de discos: ";
+        cin>>n;
+        torre_hanoi(n,'A','C','B');//llamamos a la funcion hanoi
+         
+}
