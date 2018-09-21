@@ -1,0 +1,137 @@
+//Pérez Anaya angel francisco
+//Cola 
+#include <iostream>
+using namespace std;
+
+void insertaFila(int);
+void sacaFila();
+void imprimeFila();
+
+
+	typedef struct nodo{
+	
+	int num;
+	struct nodo *p;//Declaracion de puntero
+	
+}nod;
+
+class Fila{
+	private:
+		nod *inic;
+	public:
+		Fila();
+		~Fila();
+		void insertaFila(int);
+		void sacaFila();
+		void imprimeFila();
+};
+Fila::Fila(){//Constructor fila
+	inic=NULL; //El apuntador que apunte a NULL 
+}
+
+void Fila::insertaFila(int x){
+	nod *nvo; //se toma memoria del monticulo header <stdio.h>
+	nod *aux=inic;
+	nvo=new nod;
+	nvo->num=x;
+	nvo->p=NULL;
+	while(inic !=NULL && aux->p!=NULL)
+
+	{
+		aux=aux->p;
+	}
+	
+	if(aux==NULL){
+		inic=nvo;
+	}
+	else {
+		aux->p=nvo;
+	}
+}
+
+void Fila::sacaFila(){
+	nod *aux=inic;
+	if(inic==NULL){
+		cout<<"\n La Fila esta vacia"<<endl;
+		cin.get();
+		return;
+	}
+	inic=aux->p;
+
+	cout<<"\n Sale :"<<aux->num;
+	delete(aux);
+}
+
+void Fila::imprimeFila(){
+	nod *aux=inic;
+	if(inic==NULL){
+		cout<<"\nLafila esta vacia"<<endl;
+		cin.get();
+		return;
+	}
+	cout<<"\n";
+	while(aux != NULL){
+		cout<<aux->num<<endl;
+		aux=aux->p;
+	}
+	cin.get();
+	
+}
+
+Fila::~Fila(){
+	while(inic !=NULL){
+		sacaFila();
+	}
+}
+
+main(){
+	Fila f1;
+	int opc,unnum;
+	do{
+		cout<<"\n1.- Inserta en la Fila";
+		cout<<"\n2.- Sacar de la Fila";
+		cout<<"\n3.- imprime Fila";
+		cout<<"\n4.- Salir";
+		cout<<"\n\nElija una opcion :";
+		cin>>opc;
+		switch(opc){
+		case 1:
+			 cout<<"\n Numero a insertar :";
+			cin>>unnum;
+			f1.insertaFila(unnum);
+			break;
+		case 2:
+			f1.sacaFila(); 
+			break;
+		case 3:
+			f1.imprimeFila();
+			break;
+		case 4:
+			cout<<"\nFin de ejecucion ";
+			cin.get();
+			break;
+		default :
+			cout<<"\nDato incorrecto ";
+			
+			
+		}
+		}while(opc!=4);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
