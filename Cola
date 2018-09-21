@@ -4,8 +4,8 @@
 using namespace std;
 
 void insertaFila(int);
-void sacaFila();
-void imprimeFila();
+void sacaFila(); //Aqui no van declaradas las funciones 
+void imprimeFila();//las funciones se declaran en la clase
 
 
 	typedef struct nodo{
@@ -20,7 +20,8 @@ class Fila{
 		nod *inic;
 	public:
 		Fila();
-		~Fila();
+		~Fila(); //Importante super importante declarar las funciones en la clase
+		//  afuera como seria lo normal en otros casos
 		void insertaFila(int);
 		void sacaFila();
 		void imprimeFila();
