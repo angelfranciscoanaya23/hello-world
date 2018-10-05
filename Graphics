@@ -77,6 +77,57 @@ void draw()
 
  
  
+ class Rectangulo{
+  float x;
+  float coordenadax;
+  float coordenaday;
+  float y;
+  float base,altura;
+  Rectangulo(float ox, float oy, float b, float a){
+  
+    x=ox;
+    y=oy;
+    base=b;
+    altura=a;
+    
+  }
+  
+  void area(){
+    print("El area del rectangulo es ", base*altura);
+  }
+  
+  void pinta(){
+  stroke(50);
+  rect(x,y,x+base,y+altura);
+  }
+}
+
+Rectangulo r1;
+Rectangulo r2;
+
+void setup(){
+
+
+size(1300,1200);
+
+
+
+r1=new Rectangulo(300,300,200,100);
+r2=new Rectangulo(50,50,100,50);
+r1.area();
+r2.area();
+
+}
+
+void draw(){
+
+  background (#0709ff);
+  r1.pinta();
+  r2.pinta();
+  if(r1.coordenadax>width)r1.coordenadax=50;
+  else 
+    r1.coordenadax +=1;
+}
  
  
   
