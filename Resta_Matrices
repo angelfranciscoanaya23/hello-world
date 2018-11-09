@@ -1,0 +1,57 @@
+Algoritmo Resta_de_Matrices
+	Escribir "Introduzca el tamaño de la Matriz";
+	Escribir "Número de filas de A: ";
+	Leer filas_a;
+	Escribir "Número de columnas: ";
+	leer columnas_a;
+	Escribir "Número de filas de B: ";
+	Leer filas_b;
+	Escribir "Número de columnas: ";
+	leer columnas_b;
+	Dimension a[filas_a,columnas_a], b[filas_b,columnas_b],c[filas_a,columnas_a];
+	Si columnas_a=filas_b
+		Escribir "";
+		Para i<-1 Hasta filas_a Con Paso 1 Hacer
+			Para j<-1 Hasta columnas_a Con Paso 1 Hacer
+				Escribir "Introduzca los datos de la Matriz A [",i,"][",j,"]:";
+				Leer a[i,j];
+			FinPara
+			
+		FinPara
+		Escribir "";
+		Para i<-1 Hasta filas_b Con Paso 1 Hacer
+			Para j<-1 Hasta columnas_b Con Paso 1 Hacer
+				Escribir "Introduzca los datos de la Matriz B[",i,"][",j,"]:";
+				Leer b[i,j];
+				
+			FinPara
+		FinPara
+		
+		
+		
+		
+		Para i<-1 Hasta filas_a Con Paso 1 Hacer
+			Para j<-1 Hasta columnas_b Con Paso 1 Hacer
+				c[i,j]<-a[i,j]-b[i,j];
+				
+			FinPara
+		FinPara
+		
+		
+		
+		Escribir "";
+		Escribir "El resultado de la matriz es:";
+		Para i<-1 Hasta filas_A Con Paso 1 Hacer
+			Escribir "[";
+			Para j<-1 Hasta columnas_b Con Paso 1 Hacer
+				Escribir c[i,j], " ";
+				
+			FinPara
+			Escribir "]";
+		FinPara
+	SiNo
+		Escribir "No es posible realizar la operación.";
+		Escribir "Porque las filas y columnas deben ser iguales.";
+	FinSi
+	
+FinAlgoritmo
