@@ -1,0 +1,22 @@
+//Fecha 16/11/2018
+
+
+//Cubo rota en eje x,y,z
+
+void setup()
+{
+  size(400,400,P3D);
+  fill(0,0,200);
+  
+}
+
+void draw()
+{
+  background(140);
+  translate(width/2,height/2);
+  rotateX(frameCount*PI/60.0);
+  //rotateY(frameCount*PI/180.0);
+  rotateZ(frameCount*PI/120.0);
+  box(200);
+  
+}
