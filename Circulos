@@ -1,0 +1,16 @@
+int n=450;
+int cuenta=0;
+void setup(){
+  size(700,700);
+}
+
+void draw(){
+  float radio=random(400);
+  fill(random(1,255),random(1,255), random(1,255));
+  
+  ellipse(random(700),random(700),radio,radio);
+  if(cuenta>n){
+    noLoop();
+  }
+  cuenta++;
+}
