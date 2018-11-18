@@ -1,0 +1,86 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int num;
+void imprimir( float a[][num], int filas1, int col ) //esta funcion imprime matrices
+{
+  int i, j;
+  for(i = 0; i < filas1; i++)
+  {
+    for(j = 0; j < col; j++)
+      printf("%.2f ", a[i][j]);
+    printf("\n");
+  }
+}
+
+
+int main()
+{
+	
+  float a[10][10]; //Matriz Maxima
+  int i, j;
+  int columnas,filas;
+  printf("------------Matriz----------\n");
+  
+	printf("Ingrese el num. de filas :");
+	scanf("%d",&filas);
+	columnas = filas;
+	
+	
+	printf("\n");
+	printf("Digite las posiciones de la matriz bidimensioanl [%d][%d]\n",filas,columnas);
+	for(i=0;i<filas;i++){
+		for(j=0;j<columnas;j++){
+			printf("Ingresa la posicion [%d][%d] :",i+1,j+1);
+			scanf("%f",&a[i][j]);
+		}
+	}
+
+
+  num = 10;
+  printf("\n-----Matriz ingresada----\n");
+  printf("\n");
+  imprimir(a, filas, columnas);
+
+  printf("\n\n");
+  
+  if(filas==4 & columnas == 4){
+  	printf("Submatriz = Matriz_P_A[2][2] :\n");
+  
+  	imprimir((float(*)[num])(&a[0][0]), 2, 2);
+  	printf("\nSubmatriz = Matriz_P_B[2][2] :\n");
+  	imprimir((float(*)[num])(&a[0][2]), 2, 2);
+  	printf("\nSubmatriz = Matriz_P_C[2][2] :\n");
+  	imprimir((float(*)[num])(&a[2][0]), 2, 2);
+  	printf("\nSubmatriz = Matriz_P_D[2][2] :\n");
+  	imprimir((float(*)[num])(&a[2][2]), 2, 2);
+  }
+  if(filas==5 & columnas == 5){
+  	printf("\nSubmatriz = Matriz_P_A[2][2] :\n");
+  	imprimir((float(*)[num])(&a[0][0]), 2, 2);
+  	printf("\nSubmatriz = Matriz_P_B[2][3] :\n");
+  	imprimir((float(*)[num])(&a[0][2]), 2, 3);
+  	printf("\nSubmatriz = Matriz_P_C[3][2] :\n");
+  	imprimir((float(*)[num])(&a[2][0]), 3, 2);
+  	printf("\nSubmatriz = Matriz_P_D[3][3] :\n");
+  	imprimir((float(*)[num])(&a[2][2]), 3, 3);
+  }
+  
+  if(filas==6 & columnas == 6){
+  	printf("\nSubmatriz = Matriz_P_A[3][3] :\n");
+  	imprimir((float(*)[num])(&a[0][0]), 3, 3);
+  	printf("\nSubmatriz = Matriz_P_B[3][3] :\n");
+  	imprimir((float(*)[num])(&a[0][3]), 3, 3);
+  	printf("\nSubmatriz = Matriz_P_C[3][3] :\n");
+  	imprimir((float(*)[num])(&a[3][0]), 3, 3);
+  	printf("\nSubmatriz = Matriz_P_D[3][3] :\n");
+  	imprimir((float(*)[num])(&a[3][3]), 3, 3);
+  }
+	
+  //imprimir((int(*)[num])(&a[1][1]), 5, 4); //Aqui llamo a la funcion y la subdivide
+  // &a[1][1]) significa que empieze desde renglon 2 y columna 2, empieza en cero
+  // el 5 y 4 es para definir la matriz de cuanto la queremos :p
+  	
+	system("pause");
+  return 0;
+}
