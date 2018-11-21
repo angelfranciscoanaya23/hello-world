@@ -1,0 +1,47 @@
+/*Se requiere un programa que sea capaz de recibir una cadena de caracteres,
+ademas de recibir un caracter, para mostrar al usuario la cantidad
+de veces que aparece dicho caracter en la cadena.
+Preguntar al usuario si desea buscar otro caracter en la cadena,
+ingresar otra cadena o salir del programa. 
+Angel Francisco Pérez Anaya
+21/11/2018*/
+#include <stdio.h>
+#include <stdlib.h>
+#define tamFrase 100 //definimos una frase de maximo 100 caracteres
+int main()
+{
+    char frase[tamFrase];
+         int i;
+         int veces=0; //iremos contabilizando cada vez que aparezca el caracter
+         char caracter;
+         int opc;
+         int salir;
+         
+		 
+ 	printf("\tPrograma que cuenta los caracteres las veces que se repite en una \n");
+ 	printf("\t\t---------CADENA--------- \n");
+    printf("Ingresa una cadena: " );
+    gets(frase);
+    do{ //para ver si el usuario desea contar otro caracter
+	
+ 	 printf("\nIngresa un caracter : ");
+ 	 fflush(stdin); //vaciamos el buffer
+    scanf("%c",&caracter); //leemos caracter
+    for(i=0; i < tamFrase;i++)
+    {
+    	if(frase[i]==caracter){ //si el array encuentra que es igual al caracter
+    		veces++; //aumentamos uno en veces
+		} 
+    }
+    printf("\nSe repite %d el caracter [%c]",veces,caracter);
+    printf("\nLa frase es : %s",frase);
+   
+    veces=0;
+    printf("\n\nDesea ingresar otro caracter Si[1] No[0]\n");
+    scanf("%d",&opc); //repetir el programa
+    system("cls");
+    
+ 	}while(opc==1);
+
+    return 0;
+}
