@@ -1,0 +1,49 @@
+/*Se requiere un programa capaz de recibir un texto de maximo 100 letras, el programa debera mostrar
+la cantidad de letras mayusculas y minusculas que aparecen en el texto, ademas de mostrar la letra
+y posici´on de cada mayuscula. */
+
+#include <stdio.h>
+int main()
+{
+	char cadena[100]; //maxima longitud de la cadena
+	int mayuscula, minuscula,i;
+   	i = 0; //iterador de minusculas
+    int j = 0; //iterador de mayusculas
+	mayuscula = 0;
+    minuscula = 0;
+    int opc;
+    printf("Cuenta cuantas MAYUSCULAS && MINUSCULAS hay en una cadena\n");
+	do{
+		i=0;
+		fflush(stdin);
+    printf("\nIngresa una cadena : ");
+    gets(cadena); //obtenemos con la funcion gets
+    
+    while(cadena[i] != 0) //sabemos que cuando acaba una cadena es 0 ejemplo angel\0 en ese momento terminara
+    {	//evaluamos 
+        if(cadena[i] >= 'a' && cadena[i] <= 'z')
+        {
+            minuscula++;
+          
+        }
+        else if (cadena[i] >= 'A' && cadena[i] <= 'Z')
+        {
+           
+					 mayuscula++;
+           printf("\nLa mayuscula %c esta en %d ",cadena[i],i+1);
+        }
+        i++;
+           
+    }
+    printf("\nEl numero de letras mayusculas es: %d",mayuscula);
+    printf("\nEl numero de letras minusculas es: %d",minuscula); 
+	fflush(stdin); //liberamos memoria
+	
+    printf("\n\nDesea ingresar otro caracter Si[1] No[0]\n");
+    scanf("%d",&opc); //repetir el programa
+   
+    fflush(stdin);
+    system("cls"); 
+	}while(opc==1);
+return 0;    
+}
