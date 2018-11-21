@@ -27,7 +27,7 @@ int main()
  	 printf("\nIngresa un caracter : ");
  	 fflush(stdin); //vaciamos el buffer
     scanf("%c",&caracter); //leemos caracter
-    for(i=0; i < tamFrase;i++)
+    for(i=0; frase[i]!= 0;i++)
     {
     	if(frase[i]==caracter){ //si el array encuentra que es igual al caracter
     		veces++; //aumentamos uno en veces
