@@ -1,3 +1,4 @@
+//Angel Francisco Anaya
 #include <stdio.h>
 #include <stdlib.h>
 //se define que tiene dos partes que tiene un int y un apuntador
@@ -13,7 +14,7 @@ typedef struct elemento *apunta_nodo; //cambiamos el nombre
 
 int main()
 {
-    struct elemento e1,e3,e5,e7;
+    struct elemento e1,e3,e5,e7; 
     
     printf("Hola, mundo!\n");
     apunta_nodo inicio,aux; //inicio y aux  
@@ -23,9 +24,16 @@ int main()
     e5.clave=50;
     e7.clave=70;
     
+    //las estructuras apuntan a su siguiente estructura;
+    e1.siguiente = &e3;
+    e3.siguiente= &e5;
+    e5.siguiente =&e7;
+    e7.siguiente =NULL;
+    
+    
     inicio = &e1;
     
-    printf("Los elementos d ela lista son : ");
+    printf("Los elementos de la lista son : ");
     
     for(aux=inicio; aux!= NULL; aux=aux -> siguiente)
         printf("%3d",aux->clave);
