@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+//se define que tiene dos partes que tiene un int y un apuntador
+//apunta a ella misma
+struct elemento{
+  char clave;
+  struct elemento *siguiente;
+    
+};
+
+typedef struct elemento *apunta_nodo; //cambiamos el nombre
+//struct elemento por *apunta_nodo
+
+int main()
+{
+    struct elemento *ap_e1,*ap_e3,*ap_e5,*ap_e7,*ap_e9;
+    
+    apunta_nodo inicio,aux; //creo dos apuntadores inicio y aux  
+    //malloc el nombre es memory allocatin
+    //quiere decir reserva memoria
+    ap_e1 = (apunta_nodo)malloc(sizeof(struct elemento));
+    ap_e3 = (apunta_nodo)malloc(sizeof(struct elemento));
+    ap_e5 = (apunta_nodo)malloc(sizeof(struct elemento));
+    ap_e7 = (apunta_nodo)malloc(sizeof(struct elemento));
+    ap_e9 = (apunta_nodo)malloc(sizeof(struct elemento));
+    
+    ap_e1->clave='a';
+    ap_e3->clave='n';
+    ap_e5->clave='g';
+    ap_e7->clave='e';
+    ap_e9->clave='l';
+    
+    ap_e1->siguiente =ap_e3;
+    ap_e3->siguiente =ap_e5;
+    ap_e5->siguiente =ap_e7;
+    ap_e7->siguiente =ap_e9;
+    ap_e9->siguiente =NULL;
+    
+    
+    
+   inicio = ap_e1;
+    
+    printf("Los elementos de la lista son : ");
+    
+    for(aux=inicio; aux!= NULL; aux=aux -> siguiente)
+        printf("%c",aux->clave);
+        printf("\n");
+        
+    free(ap_e1);
+    free(ap_e3);
+    free(ap_e5);
+    free(ap_e7);
+    free(ap_e9);
+    
+    return 0;
+    
+}
