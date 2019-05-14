@@ -1,0 +1,119 @@
+#include <stdio.h>
+
+/* Alumnos.
+
+El programa almacena variables de tipo estructura alumno
+
+en un archivo */
+
+
+
+typedef struct /* Declaracion de la estructura alumno */
+
+{
+
+    int matricula;
+
+    char nombre[20];
+
+    int carrera;
+
+    float promedio;
+
+} alumnos;
+
+
+
+void escribe(FILE *); /* Prototipo de función */
+
+
+
+void main(void)
+
+{
+
+    FILE *ar;
+
+    if ((ar = fopen("ad1.dat","w")) != NULL)
+
+        escribe(ar);
+
+    else
+
+        printf("\nEl archivo no se puede abrir");
+
+    fclose(ar);
+
+}
+
+
+
+void escribe(FILE *ap)
+
+/*Esta funcion sirve para leer los datos de los alumnos
+
+utilizando una estructura tipo alumno que se almacenara
+
+posteriormente en un archivo */
+
+{
+
+    alumnos alumno;
+
+    int i = 0, r;
+
+    printf("\nDesea ingresar la informacion sobre alumnos (Si - 1 No - 0:) ");
+
+    scanf("%d",&r);
+
+    while (r)
+
+    {
+
+        i++;
+
+        printf("Matricula del alumno %d: ",i);
+
+        scanf("%d",&alumno.matricula);
+
+        printf("Nombre del alumno %d: ",i);
+
+        fflush(stdin);
+
+        gets(alumno.nombre);
+
+        printf("Carrera del alumno %d: ",i);
+
+        scanf("%d", &alumno.carrera);
+
+        printf("Promedio del alumno %d: ",i);
+
+        scanf("%f",&alumno.promedio);
+
+
+
+        fwrite(&alumno,sizeof(alumno),1,ap);
+
+
+
+        /*fwrite tiene cuatro argumentos. El primero es la variable
+
+        estructura que se desea almacenar; segundo el tamaño de la
+
+        variable en bytes; tercero numero de variables a leer en el
+
+        dispositivo secundario y el apuntador al inicio de la estructura
+
+        FILE */
+
+
+
+        printf("\nDesea ingresar informacion sobre mas alumnos? (Si - 1 No - 0): ");
+
+        scanf("%d",&r);
+
+
+
+    }
+
+}
